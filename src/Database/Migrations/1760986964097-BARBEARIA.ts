@@ -16,7 +16,7 @@ export class BARBEARIA1760986964097 implements MigrationInterface {
                     },
                     {
                         name: "NOME",
-                        type: "VARHCAR(50)",
+                        type: "VARCHAR(50)",
                         isNullable: false,
                     },
                     {
