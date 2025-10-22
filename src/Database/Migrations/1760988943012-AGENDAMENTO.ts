@@ -55,6 +55,16 @@ export class AGENDAMENTO1760988943012 implements MigrationInterface {
                         isNullable: false,
                     },
                     {
+                        name: "DATA",
+                        type: "DATE",
+                        isNullable: false,
+                    },
+                    {
+                        name: "HORA",
+                        type: "TIME",
+                        isNullable: false,
+                    },
+                    {
                         name: "DURACAO_MIN",
                         type: "INT",
                         isNullable: false,

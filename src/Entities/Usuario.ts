@@ -3,26 +3,26 @@ import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 @Entity({ name: "USUARIO" })
 export class Usuario {
     @PrimaryGeneratedColumn()
-    ID!: number;
+    id!: number;
 
     @Column({ type: "varchar", length: 50 })
-    NOME!: string;
+    nome!: string;
 
     @Column({ type: "varchar", length: 11 })
-    CPF!: string;
+    cpf!: string;
 
     @Column({ type: "varchar", length: 200 })
-    EMAIL!: string;
+    email!: string;
 
     @Column({ type: "varchar", length: 11 })
-    CELULAR!: string;
+    celular!: string;
 
     @Column({ type: "varchar", length: 250 })
-    FOTO!: string;
+    foto!: string;
 
     @Column({ type: "boolean", name: "ADMINISTRADOR" })
-    ADMINISTRADOR!: string;
+    administrador!: string;
 
     @Column({ type: "varchar", length: 30 })
-    SENHA!: string;
+    senha!: string;
 }
