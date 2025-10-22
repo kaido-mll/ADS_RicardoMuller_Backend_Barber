@@ -51,4 +51,15 @@ export class BarbeariaService {
             throw error;
         }
     }
+
+    static async getByCnpj(cnpj: string) {
+        const repository = getCustomRepository(BarbeariaRepository);
+        try {
+            const cnpjLimpo = cnpj.replace(/\D/g, '');
+            return await repository.findOne({ where: { cnpj: cnpjLimpo } });
+        } catch (error) {
+            throw error;
+        }
+    }
+
 }

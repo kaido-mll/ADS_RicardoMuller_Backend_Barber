@@ -1,19 +1,23 @@
 import { ErroMotivo } from "../../../Models/ErroMotivo";
-import { Usuario } from "../../../Entities/Usuario";
-import { UsuarioService } from "../../../Services/Usuario.Service";
+import { Barbearia } from "../../../Entities/Barbearia";
+import { BarbeariaService } from "../../../Services/Barbearia.Service";
 
-export const duplicidade = async (usuario: Usuario) => {
+export const duplicidade = async (barbearia: Barbearia) => {
     const erros = [] as ErroMotivo[];
 
-    // Verificação de duplicidade
-    const existingUsuario = await UsuarioService.getCpfNome(usuario.CPF, usuario.NOME);
-    if (existingUsuario) {
+    // 🔹 Normaliza o CNPJ (remove máscara, pontos, barras, traços)
+    const cnpjLimpo = barbearia.cnpj.replace(/\D/g, "");
+
+    // 🔹 Busca barbearia com mesmo CNPJ
+    const existente = await BarbeariaService.getByCnpj(cnpjLimpo);
+
+    if (existente && existente.id !== barbearia.id) {
         erros.push({
-            variavel: "CPF",
-            motivo: `Já existe um usuario de nome: ${usuario.NOME} cadastrada com o CPF: ${usuario.CPF} `,
-            valor: usuario.CPF
+            variavel: "CNPJ",
+            motivo: `Já existe uma barbearia cadastrada com o CNPJ: ${barbearia.cnpj}`,
+            valor: barbearia.cnpj
         });
     }
 
     return erros;
-}
+};
