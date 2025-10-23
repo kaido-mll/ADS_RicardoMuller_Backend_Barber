@@ -63,11 +63,12 @@ export class AgendamentoService {
 
         return await repository.findOne({
             where: {
-                ID_BARBEIRO: id_barbeiro,
-                ID_USUARIO: id_cliente,
-                DATA: data,
-                HORA: hora,
+                id_barbeiro: id_barbeiro,
+                id_usuario: id_cliente,
+                data: data,
+                hora: hora,
             },
         });
     }
+
 }

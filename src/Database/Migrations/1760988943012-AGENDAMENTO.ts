@@ -72,7 +72,7 @@ export class AGENDAMENTO1760988943012 implements MigrationInterface {
                     {
                         name: "VALOR",
                         type: "DECIMAL",
-                        precision: 3,
+                        precision: 5,
                         scale: 2,
                         isNullable: false,
                     }

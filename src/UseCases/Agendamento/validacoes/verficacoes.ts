@@ -33,16 +33,15 @@ export const verificacao = async (agendamento: Agendamento) => {
     if (!agendamento.hora) {
         erros.push({ variavel: "HORA", motivo: "A hora deve ser preenchida", valor: agendamento.hora });
     }
-    //VERIFICAÇÃO DE DUPLICIDADE DE HORÁRIO
-    const id_barbeiro = Number(getId(agendamento.barbeiro));
-    const id_cliente = Number(getId(agendamento.cliente));
-    if (id_barbeiro && id_cliente && agendamento.data && agendamento.hora) {
+    // VERIFICAÇÃO DE DUPLICIDADE DE HORÁRIO
+    if (agendamento.id_barbeiro && agendamento.id_usuario && agendamento.data && agendamento.hora) {
         const existente = await AgendamentoService.getByHorario(
-            id_barbeiro,
-            id_cliente,
+            agendamento.id_barbeiro,
+            agendamento.id_usuario,
             agendamento.data,
             agendamento.hora
         );
+
         if (existente) {
             erros.push({
                 variavel: "HORARIO",

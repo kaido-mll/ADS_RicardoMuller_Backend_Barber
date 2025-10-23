@@ -39,6 +39,6 @@ export class Agendamento {
     @Column({ name: "DURACAO_MIN", type: "int", nullable: false })
     duracao_min: number;
 
-    @Column({ name: "VALOR", type: "decimal", precision: 3, scale: 2, nullable: false })
+    @Column({ name: "VALOR", type: "decimal", precision: 5, scale: 2, nullable: false })
     valor: number;
 }
