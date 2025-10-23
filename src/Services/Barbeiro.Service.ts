@@ -38,10 +38,10 @@ export class BarbeiroService {
         }
     }
 
-    static async getCpfNome(nome: string, cpf: string) {
+    static async getCpf( cpf: string) {
         const repository = getCustomRepository(BarbeiroRepository);
         try {
-            return await repository.findOne({ where: { nome, cpf } });
+            return await repository.findOne({ where: {  cpf } });
         } catch (error) {
             throw error;
         }

@@ -1,10 +1,10 @@
-import {MigrationInterface, QueryRunner, Table} from "typeorm";
+import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
-export class SERVICO1760988729863 implements MigrationInterface {
+export class SERVICO1760987740040 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.createTable (
-            new Table ({
+        await queryRunner.createTable(
+            new Table({
                 name: "SERVICO",
                 columns: [
                     {
@@ -21,11 +21,12 @@ export class SERVICO1760988729863 implements MigrationInterface {
                     },
                     {
                         name: "VALOR",
-                        type: "DECIMAL",
-                        precision: 3,
+                        type: "decimal",
+                        precision: 5,
                         scale: 2,
-                        isNullable: false,
+                        isNullable: false
                     },
+
                     {
                         name: "DURACAO",
                         type: "INT",

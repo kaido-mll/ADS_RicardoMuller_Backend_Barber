@@ -17,11 +17,11 @@ export async function getById(id: number) {
 }
 
 /**
- * Buscar Usuarios por ID_ENTIDADE
+ * Buscar Usuarios por CPF
  */
-export async function getCpfNome(CPF: string, nome: string) {
+export async function getCpf(CPF: string) {
     try {
-        const data = await UsuarioService.getCpfNome(CPF, nome);
+        const data = await UsuarioService.getCpf(CPF);
         // Corrigido: A verificação agora funciona para um único objeto ou um array
         if (!data || (Array.isArray(data) && data.length === 0)) {
             return new ResponseFormat(false, `Nenhum Usuario encontrado para o CPF: ${CPF}}.`, null);

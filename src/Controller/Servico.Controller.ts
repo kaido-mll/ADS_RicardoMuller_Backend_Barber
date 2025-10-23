@@ -1,15 +1,15 @@
 import { Request, Response } from "express";
-import { Usuario } from "../Entities/Usuario";
-import { create, del, update } from "../UseCases/Usuario";
-import { getById, getCpf } from "../UseCases/Usuario/get";
+import { Servico } from "../Entities/Servico";
+import { create, del, update } from "../UseCases/Servico";
+import { getById } from "../UseCases/Servico/get";
 
 
-export class UsuarioController {
+export class ServicoController {
     
     static async create(req: Request, res: Response) {
         try {
-           //req.body.id_entidade = req.usuario?.entidade?.id ;
-            const data = await create(req.body as Usuario);
+           //req.body.id_entidade = req.Servico?.entidade?.id ;
+            const data = await create(req.body as Servico);
             return res.status(201).json(data);
         } catch (e) {
             return res.status(400).json(e);
@@ -19,7 +19,7 @@ export class UsuarioController {
     static async update(req: Request, res: Response) {
         try {
             const id = Number(req.params.id);
-            //req.body.id_entidade = req.usuario?.entidade?.id ;
+            //req.body.id_entidade = req.Servico?.entidade?.id ;
             const data = await update(id, req.body);
             return res.status(200).json(data);
         } catch (e) {
@@ -47,13 +47,4 @@ export class UsuarioController {
         }
     }
 
-    static async getCpf(req: Request, res: Response) {
-        try {
-            const cpf = req.params.cpf;
-            const data = await getCpf( cpf);
-            return res.status(200).json(data);
-        } catch (e) {
-            return res.status(400).json(e);
-        }
-    }
 }

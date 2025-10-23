@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { UsuarioController as Controller } from "../Controller/Usuario.Controller";
+import { BarbeiroController as Controller } from "../Controller/Barbeiro.Controller";
 import { AutenticacaoMiddleware } from "../MiddleWare/Autenticaao.Middleware";
 
 const router = Router();

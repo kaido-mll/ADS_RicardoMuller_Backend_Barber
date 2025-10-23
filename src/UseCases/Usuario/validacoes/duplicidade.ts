@@ -6,12 +6,12 @@ export const duplicidade = async (usuario: Usuario) => {
     const erros = [] as ErroMotivo[];
 
     // Verificação de duplicidade
-    const existingUsuario = await UsuarioService.getCpfNome(usuario.CPF, usuario.NOME);
+    const existingUsuario = await UsuarioService.getCpf(usuario.cpf);
     if (existingUsuario) {
         erros.push({
             variavel: "CPF",
-            motivo: `Já existe um usuario de nome: ${usuario.NOME} cadastrada com o CPF: ${usuario.CPF} `,
-            valor: usuario.CPF
+            motivo: `Já existe um usuario de cpf: ${usuario.cpf} cadastrado `,
+            valor: usuario.cpf
         });
     }
 

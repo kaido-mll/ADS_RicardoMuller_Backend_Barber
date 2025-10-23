@@ -14,7 +14,7 @@ router.put(`/:id`, /*AutenticacaoMiddleware,*/   Controller.update);
 router.get(`/por-id/:id`, /*AutenticacaoMiddleware,*/   Controller.getById);
 
 // Listar por nome
-router.get(`/cnpj/:nome`, /*AutenticacaoMiddleware,*/   Controller.getByCnpj);
+router.get(`/cnpj/:cnpj`, /*AutenticacaoMiddleware,*/   Controller.getByCnpj);
 
 // Deletar
 router.delete(`/:id`, /*AutenticacaoMiddleware,*/   Controller.delete);

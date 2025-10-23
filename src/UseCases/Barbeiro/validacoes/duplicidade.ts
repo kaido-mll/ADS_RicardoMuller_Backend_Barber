@@ -1,17 +1,17 @@
 import { ErroMotivo } from "../../../Models/ErroMotivo";
-import { Usuario } from "../../../Entities/Usuario";
-import { UsuarioService } from "../../../Services/Usuario.Service";
+import { Barbeiro } from "../../../Entities/Barbeiro";
+import { BarbeiroService } from "../../../Services/Barbeiro.Service";
 
-export const duplicidade = async (usuario: Usuario) => {
+export const duplicidade = async (barbeiro: Barbeiro) => {
     const erros = [] as ErroMotivo[];
 
     // Verificação de duplicidade
-    const existingUsuario = await UsuarioService.getCpfNome(usuario.CPF, usuario.NOME);
-    if (existingUsuario) {
+    const existingBarbeiro = await BarbeiroService.getCpf(barbeiro.cpf,);
+    if (existingBarbeiro) {
         erros.push({
             variavel: "CPF",
-            motivo: `Já existe um usuario de nome: ${usuario.NOME} cadastrada com o CPF: ${usuario.CPF} `,
-            valor: usuario.CPF
+            motivo: `Já existe um Barbeiro cadastrado com o CPF: ${barbeiro.cpf} `,
+            valor: barbeiro.cpf
         });
     }
 

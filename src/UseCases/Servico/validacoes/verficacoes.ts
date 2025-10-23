@@ -1,22 +1,18 @@
 import { ErroMotivo } from "../../../Models/ErroMotivo";
 import { validarCpf, validarCnpj } from "../../../Utils/Validators";
-import { Usuario } from "../../../Entities/Usuario";
+import { Servico } from "../../../Entities/Servico";
 
-export const verificacao = async (usuario: Usuario) => {
+export const verificacao = async (servico: Servico) => {
     const erros = [] as ErroMotivo[];
     //CAMPOS OBRIGATRORIOS
-    if (!usuario.NOME) {
-        erros.push({ variavel: "NOME", motivo: "O nome deve ser preenchido", valor: usuario.NOME });
+    if (!servico.descricao) {
+        erros.push({ variavel: "NOME", motivo: "A descrição deve ser preenchido", valor: servico.descricao });
     }
-    if (!usuario.CPF) {
-        erros.push({ variavel: "CPF", motivo: "O CPF deve ser preenchido", valor: usuario.CPF });
+    if (!servico.valor) {
+        erros.push({ variavel: "VALOR", motivo: "O valor deve ser preenchido", valor: servico.valor });
     }
-    if (!usuario.SENHA) {
-        erros.push({ variavel: "SENHA", motivo: "Senha deve ser preenchida", valor: usuario.SENHA })
-    }
-    // VALIDAR CPF
-    if (!validarCpf(usuario.CPF)) {
-        erros.push({ variavel: "CPF", motivo: "O número do cpf informado é inválido", valor: usuario.CPF })
+    if (!servico.duracao) {
+        erros.push({ variavel: "DURACAO", motivo: "Duração do serviço deve ser preenchida", valor: servico.duracao })
     }
     return erros;
 }

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { UsuarioController as Controller } from "../Controller/Usuario.Controller";
+import { ServicoController as Controller } from "../Controller/Servico.Controller";
 import { AutenticacaoMiddleware } from "../MiddleWare/Autenticaao.Middleware";
 
 const router = Router();
@@ -12,9 +12,6 @@ router.put(`/:id`, /*AutenticacaoMiddleware,*/   Controller.update);
 
 // Buscar por ID
 router.get(`/por-id/:id`, /*AutenticacaoMiddleware,*/   Controller.getById);
-
-// Listar por nome
-router.get(`/cpf/:cpf`, /*AutenticacaoMiddleware,*/   Controller.getCpf);
 
 // Deletar
 router.delete(`/:id`, /*AutenticacaoMiddleware,*/   Controller.delete);

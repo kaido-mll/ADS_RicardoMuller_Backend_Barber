@@ -1,15 +1,15 @@
-import { Usuario } from "../../Entities/Usuario";
+import { Barbeiro } from "../../Entities/Barbeiro";
 import { ResponseFormat } from "../../Models/ResponseFormat";
-import { UsuarioService } from "../../Services/Usuario.Service";
+import { BarbeiroService } from "../../Services/Barbeiro.Service";
 
-export async function update(id: number, params: Partial<Usuario>) {
+export async function update(id: number, params: Partial<Barbeiro>) {
     try {
-        const operation = await UsuarioService.update(id, params);
+        const operation = await BarbeiroService.update(id, params);
         if (operation.affected && operation.affected > 0) {
-            const data = await UsuarioService.getById(id);
-            return new ResponseFormat(true, `Usuario atualizado com sucesso!`, data);
+            const data = await BarbeiroService.getById(id);
+            return new ResponseFormat(true, `Barbeiro atualizado com sucesso!`, data);
         }
-        return new ResponseFormat(false, `Usuario não encontrado para atualização!`, {});
+        return new ResponseFormat(false, `Barbeiro não encontrado para atualização!`, {});
     } catch (error) {
         throw error;
     }

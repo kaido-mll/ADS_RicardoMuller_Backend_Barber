@@ -46,10 +46,10 @@ export class UsuarioService {
     }
 
     // Buscar por nome e cpf
-    static async getCpfNome(nome: string, cpf: string) {
+    static async getCpf(cpf: string) {
         const repository = getCustomRepository(UsuarioRepository);
         try {
-            return await repository.findOne({ where: { nome, cpf } });
+            return await repository.findOne({ where: { cpf } });
         } catch (error) {
             throw error;
         }
